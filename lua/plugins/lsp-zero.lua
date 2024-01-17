@@ -46,7 +46,7 @@ return {
         },
         config = function()
             local lsp_zero = require('lsp-zero')
-            lsp_zero.extend_cmp()
+--            lsp_zero.extend_cmp()
 
             -- And you can configure cmp even more, if you want to.
             local cmp = require('cmp')
