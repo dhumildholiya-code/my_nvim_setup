@@ -1,4 +1,4 @@
-return {
+return{
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -21,7 +21,7 @@ return {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
         dependencies = {
-            { 'L3MON4D3/LuaSnip' },
+            {'L3MON4D3/LuaSnip'},
         },
         config = function()
             -- Here is where you configure the autocompletion settings.
@@ -48,11 +48,11 @@ return {
     -- LSP
     {
         'neovim/nvim-lspconfig',
-        cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
-        event = { 'BufReadPre', 'BufNewFile' },
+        cmd = {'LspInfo', 'LspInstall', 'LspStart'},
+        event = {'BufReadPre', 'BufNewFile'},
         dependencies = {
-            { 'hrsh7th/cmp-nvim-lsp' },
-            { 'williamboman/mason-lspconfig.nvim' },
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'williamboman/mason-lspconfig.nvim'},
         },
         config = function()
             -- This is where all the LSP shenanigans will live
@@ -62,11 +62,14 @@ return {
             --- if you want to know more about lsp-zero and mason.nvim
             --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
             lsp_zero.on_attach(function(client, bufnr)
-                local opts = { buffer = bufnr, remap = false }
+                -- see :help lsp-zero-keybindings
+                -- to learn the available actions
+                --lsp_zero.default_keymaps({buffer = bufnr})
+                local opts = {buffer = bufnr, remap = false}
 
                 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
                 vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-                vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+                vim.keymap.set("n", "<leader>ws", function() vim.lsp.buf.workspace_symbol() end, opts)
                 vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
                 vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
                 vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
@@ -77,7 +80,7 @@ return {
             end)
 
             require('mason-lspconfig').setup({
-                ensure_installed = { 'lua_ls', 'clangd' },
+                ensure_installed = {"clangd", "lua_ls"},
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
@@ -91,3 +94,4 @@ return {
         end
     }
 }
+
