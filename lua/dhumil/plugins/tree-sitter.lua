@@ -8,7 +8,6 @@ return {
             ensure_installed = { "c", "lua", "cpp"},
             sync_install = false,
             highlight = { enable = true },
-            indent = { enable = true },  
         })
     end
 }
