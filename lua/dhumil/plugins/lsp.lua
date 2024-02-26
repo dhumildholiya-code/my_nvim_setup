@@ -80,7 +80,7 @@ return{
             end)
 
             require('mason-lspconfig').setup({
-                ensure_installed = {"clangd", "lua_ls"},
+                ensure_installed = {"clangd", "lua_ls", "zls"},
                 handlers = {
                     lsp_zero.default_setup,
                     lua_ls = function()
@@ -88,6 +88,9 @@ return{
                     end,
                     clangd = function()
                         require('lspconfig').clangd.setup({})
+                    end,
+                    zls = function()
+                        require('lspconfig').zls.setup({})
                     end
                 }
             })
