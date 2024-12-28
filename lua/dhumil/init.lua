@@ -35,7 +35,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 
-vim.keymap.set("n", "<leader>pv", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>")
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
