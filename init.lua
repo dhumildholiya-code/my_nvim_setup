@@ -1,2 +1,2 @@
 require("dhumil")
-require("lazy")
+require("plugins")
