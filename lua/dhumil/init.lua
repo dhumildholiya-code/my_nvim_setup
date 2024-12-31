@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
---vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
@@ -59,4 +59,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-vim.cmd "colorscheme habamax"
+--NOTE(Dhumil): Jblow colorscheme
+vim.cmd [[hi normal guibg=#072626]]
+vim.cmd [[hi @keyword guifg=#FFFFFF]]
+vim.cmd [[hi @module guifg=#D3B58D]]
+vim.cmd [[hi @type.builtin guifg=#98FB98]]
+vim.cmd [[hi @type guifg=#D3B58D]]
+vim.cmd [[hi @variable guifg=#D3B58D]]
+vim.cmd [[hi @variable.builtin guifg=#FFFFFF]]
+vim.cmd [[hi @constant guifg=#D3B58D]]
+vim.cmd [[hi @constant.builtin guifg=#7FFFD4]]
+vim.cmd [[hi @function guifg=#D3B58D]]
+vim.cmd [[hi @punctuation guifg=#D3B58D]]
+vim.cmd [[hi @spell guifg=#3DDF23]]
+vim.cmd [[hi @number guifg=#7FFFD4]]
+vim.cmd [[hi @string guifg=#0FDFAF]]
+vim.cmd [[hi @character guifg=#0FDFAF]]
+vim.cmd [[hi @boolean guifg=#7FFFD4]]
+vim.cmd [[hi @operator guifg=#D3B58D]]
+vim.cmd [[hi Visual guibg=#0000FF]]

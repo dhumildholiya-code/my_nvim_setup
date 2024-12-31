@@ -9,12 +9,6 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    {--NOTE: Highlight todo comments.
-        'folke/todo-comments.nvim',
-        event = 'VimEnter',
-        dependencies = { 'nvim-lua/plenary.nvim' },
-        opts = { signs = false }
-    },
     {--NOTE: Fuzy Finder
         'nvim-telescope/telescope.nvim',
         event = "VimEnter",
