@@ -58,7 +58,7 @@ vim.cmd [[hi Visual guibg=#0000FF]]
 
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>")
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set("n", "<F5>", ":lua Build()<CR>")
+vim.keymap.set("n", "<F5>", ":!build.bat<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
