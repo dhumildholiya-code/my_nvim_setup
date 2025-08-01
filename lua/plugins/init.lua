@@ -47,12 +47,10 @@ require('lazy').setup({
         end,
     },
     {
-        "vague2k/vague.nvim",
+        "whizikxd/naysayer-colors.nvim",
+        lazy = false,
         config = function()
-            require("vague").setup({
-                bold = false,
-                italic = false,
-            })
+            vim.cmd.colorscheme("naysayer")
         end
     },
 })

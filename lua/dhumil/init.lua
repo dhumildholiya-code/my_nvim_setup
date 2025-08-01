@@ -24,7 +24,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = ture
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.cursorline = true
 vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 300
