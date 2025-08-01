@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
-vim.opt.guicursor = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
@@ -28,7 +27,7 @@ vim.opt.incsearch = ture
 vim.opt.scrolloff = 8
 vim.opt.cursorline = true
 vim.opt.signcolumn = 'yes'
-vim.opt.updatetime = 50
+vim.opt.updatetime = 300
 
 vim.opt.splitright = true
 vim.opt.list = true
@@ -36,25 +35,25 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 
 --NOTE(Dhumil): Jblow colorscheme
-vim.cmd [[hi normal guibg=#072626]]
-vim.cmd [[hi @keyword guifg=#FFFFFF]]
-vim.cmd [[hi @module guifg=#D3B58D]]
-vim.cmd [[hi @type.builtin guifg=#98FB98]]
-vim.cmd [[hi @type guifg=#D3B58D]]
-vim.cmd [[hi @variable guifg=#D3B58D]]
-vim.cmd [[hi @variable.builtin guifg=#FFFFFF]]
-vim.cmd [[hi @constant guifg=#D3B58D]]
-vim.cmd [[hi @constant.builtin guifg=#7FFFD4]]
-vim.cmd [[hi @function guifg=#D3B58D]]
-vim.cmd [[hi @punctuation guifg=#D3B58D]]
-vim.cmd [[hi @spell guifg=#3DDF23]]
-vim.cmd [[hi @number guifg=#7FFFD4]]
-vim.cmd [[hi @number.float guifg=#7FFFD4]]
-vim.cmd [[hi @string guifg=#0FDFAF]]
-vim.cmd [[hi @character guifg=#0FDFAF]]
-vim.cmd [[hi @boolean guifg=#7FFFD4]]
-vim.cmd [[hi @operator guifg=#D3B58D]]
-vim.cmd [[hi Visual guibg=#0000FF]]
+-- vim.cmd [[hi normal guibg=#072626]]
+-- vim.cmd [[hi @keyword guifg=#FFFFFF]]
+-- vim.cmd [[hi @module guifg=#D3B58D]]
+-- vim.cmd [[hi @type.builtin guifg=#98FB98]]
+-- vim.cmd [[hi @type guifg=#D3B58D]]
+-- vim.cmd [[hi @variable guifg=#D3B58D]]
+-- vim.cmd [[hi @variable.builtin guifg=#FFFFFF]]
+-- vim.cmd [[hi @constant guifg=#D3B58D]]
+-- vim.cmd [[hi @constant.builtin guifg=#7FFFD4]]
+-- vim.cmd [[hi @function guifg=#D3B58D]]
+-- vim.cmd [[hi @punctuation guifg=#D3B58D]]
+-- vim.cmd [[hi @spell guifg=#3DDF23]]
+-- vim.cmd [[hi @number guifg=#7FFFD4]]
+-- vim.cmd [[hi @number.float guifg=#7FFFD4]]
+-- vim.cmd [[hi @string guifg=#0FDFAF]]
+-- vim.cmd [[hi @character guifg=#0FDFAF]]
+-- vim.cmd [[hi @boolean guifg=#7FFFD4]]
+-- vim.cmd [[hi @operator guifg=#D3B58D]]
+-- vim.cmd [[hi Visual guibg=#0000FF]]
 
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>")
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -80,27 +79,12 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
 
-vim.keymap.set("n", "<leader>t", function()
-    vim.cmd.vnew()
-    vim.cmd.term()
-    vim.cmd.wincmd("J")
-    vim.api.nvim_win_set_height(0, 15)
-end)
-
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
-})
-
-vim.api.nvim_create_autocmd('TermOpen', {
-    group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
-    callback = function()
-        vim.opt.number = false
-        vim.opt.relativenumber = false
-    end,
 })
 
 function Build()
