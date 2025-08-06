@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
+vim.g.netrw_liststyle = 3
 
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -26,7 +27,7 @@ vim.opt.incsearch = ture
 
 vim.opt.scrolloff = 10
 vim.opt.cursorline = true
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = 'no'
 vim.opt.updatetime = 300
 
 vim.opt.splitright = true
@@ -55,7 +56,8 @@ vim.opt.inccommand = 'split'
 -- vim.cmd [[hi @operator guifg=#D3B58D]]
 -- vim.cmd [[hi Visual guibg=#0000FF]]
 
-vim.keymap.set("n", "<leader>e", "<cmd>Ex<CR>")
+vim.keymap.set("n", "<leader>e", ":25Lex<CR>")
+vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set("n", "<F5>", ":!build.bat<CR>")
 
