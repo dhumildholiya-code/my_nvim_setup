@@ -59,7 +59,6 @@ vim.opt.inccommand = 'split'
 vim.keymap.set("n", "<leader>e", ":25Lex<CR>")
 vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-vim.keymap.set("n", "<F5>", ":!build.bat<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -91,22 +90,27 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 function Build()
     vim.cmd("cclose")
-    local test = vim.fn.system("build.bat")
-    local list = {}
 
-    local file, line, col, msg = string.match(test, "(.*)%((%d+):(%d+)%) (.*)")
-    if file and line and col and msg then
-        table.insert(list, {
-            filename = file,
-            lnum = tonumber(line),
-            col = tonumber(col),
-            text = msg,
-        })
+    local output = vim.fn.systemlist("build.bat")
+    local qf_list = {}
+
+    for _, line in ipairs(output) do
+        local file, lnum, msg = string.match(line, "([^%(]+)%((%d+)%)%s*[:%s]*%s*(.*)")
+        if file and lnum and msg then
+            table.insert(qf_list, {
+                filename = vim.fn.fnamemodify(file, ":p"),
+                lnum = tonumber(lnum),
+                col = 1,
+                text = msg,
+            })
+        end
     end
-    if #list > 0 then
-        vim.fn.setqflist(list, 'r')
+
+    if #qf_list > 0 then
+        vim.fn.setqflist(qf_list, 'r')
         vim.cmd("copen")
     else
-        print("Compile Successfully!")
+        print("✅ Build successful!")
     end
 end
+vim.keymap.set("n", "<F5>", Build)
